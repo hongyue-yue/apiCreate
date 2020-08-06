@@ -1,0 +1,33 @@
+{
+  "name": "apiCreate",
+  "version": "0.2.8",
+  "keywords": [
+    "react"
+  ],
+  "description": "create a app ",
+  "main": "index.js",
+  "author": "qinyueshang",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "bin": {
+    "apiCreate": "./index.js"
+  },
+  "scripts": {
+    "build": "babel index.js -d lib --ignore '**/__tests__/' "
+  },
+  "dependencies": {
+    "commander": "2.20.0",
+    "consola": "^2.3.0",
+    "prompts": "^2.0.4",
+    "fs-extra": "^7.0.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7"
+  }
+}
