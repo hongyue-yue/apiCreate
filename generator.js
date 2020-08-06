@@ -23,6 +23,7 @@ module.exports = class Generator {
       Cookie: `_yapi_token=${_yapi_token};_yapi_uid=${_yapi_uid}`,
     };
     const res = await request.get(url, {
+      json: true,
       headers: headers,
     });
     return res;

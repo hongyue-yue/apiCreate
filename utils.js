@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-
+const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) =>
   path.resolve(appDirectory, relativePath);
 const mkdir = (dirpath, callback) => {
@@ -18,7 +18,7 @@ const mkdir = (dirpath, callback) => {
 };
 
 const emptyDirs = (dirpath) => {
-  let chunkList = fs.readdirSync(chunkDir);
+  let chunkList = fs.readdirSync(dirpath);
   chunkList.forEach((file) => {
     fs.unlinkSync(dirpath + "/" + file);
   });
