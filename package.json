@@ -1,9 +1,6 @@
 {
   "name": "apiCreate",
   "version": "0.2.8",
-  "keywords": [
-    "react"
-  ],
   "description": "create a app ",
   "main": "index.js",
   "author": "qinyueshang",
@@ -19,6 +16,7 @@
     "build": "babel index.js -d lib --ignore '**/__tests__/' "
   },
   "dependencies": {
+    "ora": "^3.4.0",
     "commander": "2.20.0",
     "consola": "^2.3.0",
     "prompts": "^2.0.4",

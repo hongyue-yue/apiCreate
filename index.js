@@ -1,14 +1,14 @@
-const cli = require('commander');
-const consola = require('consola');
-const fs = require('fs-extra');
-const path = require('path');
-const prompt = require('prompts');
-const Generator = require('./generator.js')
-const {
-  configTemplate
-} = require('./template.js');
+#!/usr/bin/env node
+const cli = require("commander");
+const consola = require("consola");
+const fs = require("fs-extra");
+const path = require("path");
+const prompt = require("prompts");
+const ora = require("ora");
+const Generator = require("./generator.js");
+const { configTemplate } = require("./template.js");
 
-(function async () {
+(function async() {
   const pkg = require("./package.json");
   const configFile = path.join(process.cwd(), "apiCreate.config.ts");
 
@@ -41,7 +41,9 @@ const {
           consola.success(`找到配置文件: ${configFile}`);
           try {
             const config = require(configFile).default;
-            const generator = new Generator(config)
+            const generator = new Generator(config);
+
+            const spinner = ora("正在获取yapi数据样本").start();
             const output = await generator.generate();
             spinner.stop();
             consola.success("yapi数据样本已获取，开始写入");
@@ -55,5 +57,6 @@ const {
           }
           break;
       }
-    });
+    })
+    .parse(process.argv);
 })();
