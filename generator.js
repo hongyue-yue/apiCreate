@@ -1,11 +1,22 @@
-import request from "request-promise-native";
-import { emptyDirs, mkdir, resolveApp, writeFileSync } from "./utils";
-export class Generator {
+const request = require("request-promise-native");
+const {
+  emptyDirs,
+  mkdir,
+  resolveApp,
+  writeFileSync
+} = require('./utils.js')
+
+module.exports = class Generator {
   constructor(config) {
     this.config = config;
   }
   async fetchApi(projectConfig = this.config) {
-    const { _yapi_token, _yapi_uid, projectId, serverUrl } = projectConfig;
+    const {
+      _yapi_token,
+      _yapi_uid,
+      projectId,
+      serverUrl
+    } = projectConfig;
     const url = `${serverUrl}/api/plugin/export?type=json&pid=${projectId}&status=all&isWiki=false`;
 
     const headers = {
@@ -20,7 +31,10 @@ export class Generator {
     const res = await this.fetchApi();
     const filesDesc = await Promise.all(
       res.map(async (catItem) => {
-        const { list, ...rest } = catItem;
+        const {
+          list,
+          ...rest
+        } = catItem;
         const newList = await Promise.all(
           list.map(async (apiItem) => {
             return {
@@ -37,7 +51,10 @@ export class Generator {
     const arr = [];
     filesDesc.forEach((files) => {
       files.list.forEach((file) => {
-        const { path, _id } = file;
+        const {
+          path,
+          _id
+        } = file;
         const name = this.generateApiName({
           path,
           _id,
@@ -95,7 +112,10 @@ export class Generator {
       });
     });
   }
-  generateApiName({ path, _id }) {
+  generateApiName({
+    path,
+    _id
+  }) {
     if (this.config.generateApiName) {
       return this.config.generateApiName(path, _id);
     } else {

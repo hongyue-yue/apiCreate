@@ -1,9 +1,10 @@
-import fs from "fs";
-import path from "path";
+const fs = require('fs');
+const path = require('path');
 
-export const resolveApp = (relativePath) =>
+
+const resolveApp = (relativePath) =>
   path.resolve(appDirectory, relativePath);
-export const mkdir = (dirpath, callback) => {
+const mkdir = (dirpath, callback) => {
   const exists = fs.existsSync(dirpath);
   if (exists) {
     callback();
@@ -16,14 +17,21 @@ export const mkdir = (dirpath, callback) => {
   }
 };
 
-export const emptyDirs = (dirpath) => {
+const emptyDirs = (dirpath) => {
   let chunkList = fs.readdirSync(chunkDir);
   chunkList.forEach((file) => {
     fs.unlinkSync(dirpath + "/" + file);
   });
 };
 
-export const writeFileSync = (dirpath, data) => {
+const writeFileSync = (dirpath, data) => {
   fs.writeFileSync(dirpath, data);
   consola.success(`文件写入成功: ${dirpath}`);
 };
+
+module.exports = {
+  resolveApp,
+  mkdir,
+  emptyDirs,
+  writeFileSync
+}
