@@ -1,7 +1,7 @@
 {
   "name": "apiCreate",
-  "version": "0.2.8",
-  "description": "create a app ",
+  "version": "0.1.0",
+  "description": "api create",
   "main": "index.js",
   "author": "qinyueshang",
   "license": "MIT",
