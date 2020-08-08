@@ -2,7 +2,7 @@
   "name": "apiCreate",
   "version": "0.1.0",
   "description": "api create",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "author": "qinyueshang",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,7 @@
     "apiCreate": "./index.js"
   },
   "scripts": {
-    "build": "bili "
+    "build": "bili"
   },
   "dependencies": {
     "ora": "^3.4.0",
