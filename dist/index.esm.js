@@ -1,9 +1,5 @@
 #!/usr/bin/env node
-'use strict';
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var path = _interopDefault(require('path'));
+import path from 'path';
 
 function getCjsExportFromNamespace (n) {
 	return n && n['default'] || n;
@@ -322,6 +318,8 @@ var _package$1 = /*#__PURE__*/Object.freeze({
 	devDependencies: devDependencies,
 	'default': _package
 });
+
+var Generator = getCjsExportFromNamespace(generator);
 
 var require$$0 = getCjsExportFromNamespace(_package$1);
 
@@ -643,12 +641,12 @@ var configTemplate$1 = template.configTemplate;
         return _catch(function () {
           var config = commonjsRequire(configFile);
 
-          var generator$1 = new generator(config);
+          var generator = new Generator(config);
           var spinner = ora("正在获取yapi数据样本").start();
-          return _await$1(generator$1.generate(), function (output) {
+          return _await$1(generator.generate(), function (output) {
             spinner.stop();
             consola.success("yapi数据样本已获取，开始写入");
-            generator$1.write(output, function (isNew) {
+            generator.write(output, function (isNew) {
               if (isNew) {
                 consola.success("api创建已完成");
               }
