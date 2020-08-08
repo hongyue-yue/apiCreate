@@ -1,7 +1,7 @@
 module.exports = {
     input: 'src/index.js',
     output: {
-      dir: 'dist',
+      dir: 'lib',
       format: ['cjs', 'esm'],
     },
   }
