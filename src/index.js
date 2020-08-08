@@ -12,7 +12,7 @@ const {
 } = require("./template.js");
 
 (function async () {
-  const pkg = require("./package.json");
+  const pkg = require("../package.json");
   const configFile = path.join(process.cwd(), "apiCreate.config.ts");
 
   cli

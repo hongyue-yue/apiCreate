@@ -2,7 +2,7 @@
   "name": "apiCreate",
   "version": "0.1.0",
   "description": "api create",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "qinyueshang",
   "license": "MIT",
   "private": true,
@@ -13,7 +13,7 @@
     "apiCreate": "./index.js"
   },
   "scripts": {
-    "build": "babel index.js -d lib --ignore '**/__tests__/' "
+    "build": "bili "
   },
   "dependencies": {
     "ora": "^3.4.0",
@@ -25,7 +25,6 @@
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7"
+    "bili": "^5.0.5"
   }
 }
