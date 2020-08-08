@@ -1,12 +1,12 @@
-const request = require("request-promise-native");
-const {
+
+import request from 'request-promise-native'
+import {
   emptyDirs,
   mkdir,
   resolveApp,
   writeFileSync
-} = require('./utils.js')
-
-module.exports = class Generator {
+} from './utils.js'
+export default class Generator {
   constructor(config) {
     this.config = config;
   }

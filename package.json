@@ -13,7 +13,7 @@
     "lib"
   ],
   "bin": {
-    "apiCreate": "./index.js"
+    "apiCreate": "./lib/index.js"
   },
   "scripts": {
     "build": "bili"

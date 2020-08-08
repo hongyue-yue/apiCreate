@@ -1,4 +1,4 @@
- const configTemplate = `
+ export const configTemplate = `
  const config = {
   target: "js",
   serverUrl: "http://yapi.ywfe.com",
@@ -69,4 +69,4 @@ module.exports = config;
 
   `;
 
- exports.configTemplate = configTemplate
+ //exports.configTemplate = configTemplate

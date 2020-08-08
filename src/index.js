@@ -1,15 +1,12 @@
 #!/usr/bin/env node
-
-const cli = require("commander");
-const consola = require("consola");
-const fs = require("fs-extra");
-const path = require("path");
-const prompt = require("prompts");
-const ora = require("ora");
-const Generator = require("./generator.js");
-const {
-  configTemplate
-} = require("./template.js");
+import cli from 'commander'
+import consola from 'consola'
+import fs from 'fs-extra'
+import path from 'path'
+import prompt from 'prompts'
+import ora from 'ora'
+import Generator from './generator.js'
+import {configTemplate} from './template.js'
 
 (function async () {
   const pkg = require("../package.json");

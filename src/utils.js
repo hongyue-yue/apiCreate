@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = (relativePath) =>
+export const appDirectory = fs.realpathSync(process.cwd());
+export const resolveApp = (relativePath) =>
   path.resolve(appDirectory, relativePath);
-const mkdir = (dirpath, callback) => {
+export const mkdir = (dirpath, callback) => {
   const exists = fs.existsSync(dirpath);
   if (exists) {
     callback();
@@ -17,21 +17,15 @@ const mkdir = (dirpath, callback) => {
   }
 };
 
-const emptyDirs = (dirpath) => {
+export const emptyDirs = (dirpath) => {
   let chunkList = fs.readdirSync(dirpath);
   chunkList.forEach((file) => {
     fs.unlinkSync(dirpath + "/" + file);
   });
 };
 
-const writeFileSync = (dirpath, data) => {
+export const writeFileSync = (dirpath, data) => {
   fs.writeFileSync(dirpath, data);
   consola.success(`文件写入成功: ${dirpath}`);
 };
 
-module.exports = {
-  resolveApp,
-  mkdir,
-  emptyDirs,
-  writeFileSync
-}
